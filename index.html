@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моё Портфолио</title>
+    <title>Мобильная разработка: Портфолио</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="app-container">
+        <header class="main-header">
+            <h1>Мобильная разработка</h1>
+            <p>Создаю исключительные приложения, которые решают реальные задачи.</p>
+        </header>
+
         <div class="navigation-bar">
             <button class="nav-button active" data-target="portfolio">Портфолио</button>
             <button class="nav-button" data-target="cases">Кейсы</button>
@@ -17,59 +23,61 @@
         </div>
 
         <div id="portfolio" class="content-section active">
-            <h2>Мобильное Портфолио</h2>
+            <h2>Наши последние работы</h2>
             <div class="project-card">
-                <h3>Приложение для фитнеса</h3>
-                <p>Приложение для отслеживания тренировок и питания. Основные технологии: **React Native, Firebase, Redux.**</p>
+                <i class="fa-solid fa-dumbbell project-icon"></i>
+                <div class="project-info">
+                    <h3>Фитнес-трекер "ZenFit"</h3>
+                    <p>Современное приложение для iOS и Android. Позволяет отслеживать тренировки, калории и прогресс. Технологии: **React Native, Redux, API.**</p>
+                </div>
             </div>
             <div class="project-card">
-                <h3>Интернет-магазин</h3>
-                <p>Платформа для продажи товаров с удобным интерфейсом и системой оплаты. Основные технологии: **Flutter, Node.js, PostgreSQL.**</p>
-            </div>
-            <div class="project-card">
-                <h3>Приложение для учёта расходов</h3>
-                <p>Простой и удобный инструмент для управления личными финансами. Основные технологии: **Swift, Core Data.**</p>
+                <i class="fa-solid fa-store project-icon"></i>
+                <div class="project-info">
+                    <h3>Интернет-магазин "Shopio"</h3>
+                    <p>Высокопроизводительный E-commerce проект на Flutter. Удобный интерфейс, интеграция с платежными системами. Технологии: **Flutter, Firebase, Stripe.**</p>
+                </div>
             </div>
         </div>
 
         <div id="cases" class="content-section">
-            <h2>Подробные Кейсы</h2>
+            <h2>Подробные кейсы</h2>
             <div class="case-study">
-                <h3>Кейс: Увеличение вовлечённости в приложении для фитнеса</h3>
-                <p>Мы разработали систему геймификации, которая позволила увеличить количество активных пользователей на 30% за 2 месяца.</p>
+                <h3>Как мы увеличили вовлечённость в "ZenFit" на 40%</h3>
+                <p>Мы внедрили геймификацию и систему достижений. Пользователи стали возвращаться в приложение чаще, увеличив время сессии и retention rate.</p>
             </div>
             <div class="case-study">
-                <h3>Кейс: Оптимизация производительности интернет-магазина</h3>
-                <p>Провели рефакторинг кода и оптимизацию базы данных, что сократило время загрузки страниц на 40%.</p>
+                <h3>Оптимизация производительности "Shopio"</h3>
+                <p>Снизили время загрузки каталога товаров на 50% и повысили стабильность работы приложения на 99% за счёт оптимизации запросов к серверу.</p>
             </div>
         </div>
 
         <div id="about" class="content-section">
-            <h2>Обо мне</h2>
-            <p>Привет! Меня зовут **[Твоё Имя]**, и я занимаюсь мобильной разработкой уже 5 лет. Я специализируюсь на создании высокопроизводительных и интуитивно понятных приложений для iOS и Android.</p>
-            <p>В своей работе я использую современные технологии и подходы, чтобы создавать качественные и надёжные продукты, которые нравятся пользователям.</p>
+            <h2>Немного о нас</h2>
+            <p>Привет! Меня зовут **[Твоё Имя]**. Я профессиональный мобильный разработчик с [количество] годами опыта. Моя страсть — превращать идеи в красивые и функциональные приложения.</p>
+            <p>Работаю с самыми современными технологиями и всегда слежу за трендами в мобильной разработке.</p>
         </div>
 
         <div id="contact" class="content-section">
             <h2>Свяжитесь со мной</h2>
             <form id="contact-form">
                 <div class="form-group">
-                    <label for="name">Имя</label>
+                    <label for="name">Ваше имя</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Ваш email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Сообщение</label>
+                    <label for="message">Ваше сообщение</label>
                     <textarea id="message" name="message" rows="4" required></textarea>
                 </div>
-                <button type="submit" id="submit-btn">Отправить</button>
+                <button type="submit" id="submit-btn">Отправить заявку</button>
             </form>
         </div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
