@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const webApp = window.Telegram.WebApp;
     webApp.ready();
-    // Делаем кнопки навигации в Telegram невидимыми, так как у нас свои
     webApp.disableClosingConfirmation();
 
-    // 1. Логика переключения разделов
     const navButtons = document.querySelectorAll('.nav-button');
     const contentSections = document.querySelectorAll('.content-section');
 
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Логика для формы обратной связи
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -48,10 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Сообщение: ${data.message}
             `;
 
-            // Отправляем данные в Telegram
             webApp.sendData(message);
-
-            // Показываем пользователю красивое уведомление
             webApp.showAlert('✅ Спасибо! Ваша заявка отправлена. Я скоро свяжусь с вами.');
             
             contactForm.reset();
