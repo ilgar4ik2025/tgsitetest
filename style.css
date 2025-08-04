@@ -1,8 +1,8 @@
 /* Основные стили и анимации */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: #333;
+    background: linear-gradient(135deg, #121212 0%, #2a2a2a 100%);
+    color: #f0f0f0;
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,8 +14,8 @@ body {
 .app-container {
     width: 100%;
     max-width: 600px;
-    background-color: #ffffff;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    background-color: #1e1e1e;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     padding: 30px;
     margin: 20px;
@@ -28,11 +28,10 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Заголовок и подзаголовок */
 .main-header {
     text-align: center;
     margin-bottom: 25px;
-    color: #1e3c72;
+    color: #e0e0e0;
 }
 
 .main-header h1 {
@@ -43,10 +42,10 @@ body {
 
 .main-header p {
     font-size: 1em;
-    color: #6a7486;
+    color: #a0a0a0;
 }
 
-/* Стили для навигационной панели */
+/* Стили для навигации */
 .navigation-bar {
     display: flex;
     justify-content: space-around;
@@ -59,8 +58,8 @@ body {
     padding: 12px 10px;
     border: none;
     border-radius: 10px;
-    background-color: #eef1f5;
-    color: #6a7486;
+    background-color: #333;
+    color: #a0a0a0;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -68,14 +67,14 @@ body {
 }
 
 .nav-button:hover {
-    background-color: #dbe4ef;
+    background-color: #444;
     transform: translateY(-3px);
 }
 
 .nav-button.active {
-    background-color: #4b7bec;
+    background-color: #007bff;
     color: #fff;
-    box-shadow: 0 5px 15px rgba(75, 123, 236, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
     transform: translateY(-3px);
 }
 
@@ -95,8 +94,8 @@ body {
 }
 
 h2 {
-    color: #1e3c72;
-    border-bottom: 3px solid #4b7bec;
+    color: #fff;
+    border-bottom: 3px solid #007bff;
     padding-bottom: 10px;
     margin-top: 0;
     margin-bottom: 25px;
@@ -104,11 +103,11 @@ h2 {
 }
 
 .project-card, .case-study {
-    background-color: #f7f9fc;
+    background-color: #2a2a2a;
     border-radius: 15px;
     padding: 25px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: flex-start;
     gap: 20px;
@@ -119,21 +118,22 @@ h2 {
     transform: translateY(-5px);
 }
 
-.project-icon {
-    font-size: 2em;
-    color: #4b7bec;
-    width: 40px;
-    text-align: center;
+.project-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .project-info h3 {
     margin-top: 0;
-    color: #1e3c72;
+    color: #fff;
     font-size: 1.2em;
 }
 
 .project-info p {
-    color: #555;
+    color: #a0a0a0;
     margin: 0;
 }
 
@@ -146,20 +146,22 @@ h2 {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #555;
+    color: #a0a0a0;
 }
 
 #contact-form input, #contact-form textarea {
     width: 100%;
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
     box-sizing: border-box;
     transition: border-color 0.3s;
 }
 
 #contact-form input:focus, #contact-form textarea:focus {
-    border-color: #4b7bec;
+    border-color: #007bff;
     outline: none;
 }
 
