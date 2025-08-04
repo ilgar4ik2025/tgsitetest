@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мобильная разработка: Портфолио</title>
+    <title>Мобильная разработка</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -16,33 +16,34 @@
         </header>
 
         <div class="navigation-bar">
-            <button class="nav-button active" data-target="portfolio">Портфолио</button>
-            <button class="nav-button" data-target="cases">Кейсы</button>
-            <button class="nav-button" data-target="about">Обо мне</button>
-            <button class="nav-button" data-target="contact">Контакты</button>
+            <button class="nav-button active" data-target="portfolio">
+                <i class="fas fa-briefcase"></i> Портфолио
+            </button>
+            <button class="nav-button" data-target="cases">
+                <i class="fas fa-file-alt"></i> Кейсы
+            </button>
+            <button class="nav-button" data-target="about">
+                <i class="fas fa-user"></i> Обо мне
+            </button>
+            <button class="nav-button" data-target="contact">
+                <i class="fas fa-envelope"></i> Контакты
+            </button>
         </div>
 
         <div id="portfolio" class="content-section active">
             <h2>Наши последние работы</h2>
             <div class="project-card">
-                <img src="https://storage.googleapis.com/g-images-prod/1.jpg" alt="Скриншот приложения ZenFit" class="project-image">
+                <div class="image-placeholder"></div>
                 <div class="project-info">
                     <h3>Фитнес-трекер "ZenFit"</h3>
-                    <p>Современное приложение для iOS и Android. Позволяет отслеживать тренировки, калории и прогресс. Технологии: **React Native, Redux, API.**</p>
+                    <p>Современное приложение для iOS и Android. Отслеживает тренировки, калории и прогресс. Технологии: **React Native, Redux, API.**</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="https://storage.googleapis.com/g-images-prod/2.jpg" alt="Скриншот приложения Shopio" class="project-image">
+                <div class="image-placeholder"></div>
                 <div class="project-info">
                     <h3>Интернет-магазин "Shopio"</h3>
                     <p>Высокопроизводительный E-commerce проект на Flutter. Удобный интерфейс, интеграция с платежными системами. Технологии: **Flutter, Firebase, Stripe.**</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://storage.googleapis.com/g-images-prod/3.jpg" alt="Скриншот приложения FinTrack" class="project-image">
-                <div class="project-info">
-                    <h3>Приложение для учёта финансов "FinTrack"</h3>
-                    <p>Простой и удобный инструмент для управления личными финансами. Отслеживайте доходы и расходы в одном месте. Технологии: **Swift, Core Data.**</p>
                 </div>
             </div>
         </div>
@@ -53,16 +54,12 @@
                 <h3>Как мы увеличили вовлечённость в "ZenFit" на 40%</h3>
                 <p>Мы внедрили геймификацию и систему достижений. Пользователи стали возвращаться в приложение чаще, увеличив время сессии и retention rate.</p>
             </div>
-            <div class="case-study">
-                <h3>Оптимизация производительности "Shopio"</h3>
-                <p>Снизили время загрузки каталога товаров на 50% и повысили стабильность работы приложения на 99% за счёт оптимизации запросов к серверу.</p>
-            </div>
         </div>
 
         <div id="about" class="content-section">
             <h2>Немного о нас</h2>
-            <p>Привет! Меня зовут **[Твоё Имя]**. Я профессиональный мобильный разработчик с [количество] годами опыта. Моя страсть — превращать идеи в красивые и функциональные приложения.</p>
-            <p>Работаю с самыми современными технологиями и всегда слежу за трендами в мобильной разработке.</p>
+            <p>Привет! Меня зовут Ильгар. Я профессиональный мобильный разработчик с 5 годами опыта. Моя страсть — превращать идеи в красивые и функциональные приложения.</p>
+            <p>Я использую самые современные технологии и всегда слежу за трендами в мобильной разработке.</p>
         </div>
 
         <div id="contact" class="content-section">
