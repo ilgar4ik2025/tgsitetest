@@ -1,13 +1,13 @@
-/* Основные стили и анимации */
+/* Основные стили */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #121212 0%, #2a2a2a 100%);
+    font-family: 'Inter', sans-serif;
+    background: #121212;
     color: #f0f0f0;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
 }
 
@@ -15,34 +15,30 @@ body {
     width: 100%;
     max-width: 600px;
     background-color: #1e1e1e;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    padding: 25px;
     margin: 20px;
     box-sizing: border-box;
-    animation: fadeIn 0.8s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    transition: all 0.3s ease;
 }
 
 .main-header {
     text-align: center;
     margin-bottom: 25px;
-    color: #e0e0e0;
 }
 
 .main-header h1 {
     font-size: 2.2em;
-    margin-bottom: 5px;
     font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
 }
 
 .main-header p {
     font-size: 1em;
     color: #a0a0a0;
+    margin: 0;
 }
 
 /* Стили для навигации */
@@ -51,108 +47,118 @@ body {
     justify-content: space-around;
     gap: 10px;
     margin-bottom: 25px;
+    border-radius: 12px;
+    background-color: #2a2a2a;
+    padding: 5px;
 }
 
 .nav-button {
     flex-grow: 1;
-    padding: 12px 10px;
+    padding: 12px;
     border: none;
     border-radius: 10px;
-    background-color: #333;
+    background-color: transparent;
     color: #a0a0a0;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.nav-button:hover {
-    background-color: #444;
-    transform: translateY(-3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .nav-button.active {
     background-color: #007bff;
     color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
-    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.nav-button:hover:not(.active) {
+    background-color: #333;
 }
 
 /* Стили для разделов и карточек */
 .content-section {
     display: none;
-    animation: fadeInContent 0.6s ease-in-out;
 }
 
 .content-section.active {
     display: block;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fadeInContent {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h2 {
-    color: #fff;
-    border-bottom: 3px solid #007bff;
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 25px;
+    font-size: 1.8em;
     font-weight: 600;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
 }
 
 .project-card, .case-study {
     background-color: #2a2a2a;
-    border-radius: 15px;
-    padding: 25px;
+    border-radius: 12px;
+    padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .project-card:hover, .case-study:hover {
     transform: translateY(-5px);
 }
 
-.project-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-    flex-shrink: 0;
+.image-placeholder {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background: #333;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
 }
 
 .project-info h3 {
-    margin-top: 0;
+    font-size: 1.4em;
+    font-weight: 600;
     color: #fff;
-    font-size: 1.2em;
+    margin: 0 0 5px 0;
 }
 
 .project-info p {
+    font-size: 0.9em;
     color: #a0a0a0;
     margin: 0;
 }
 
 /* Стили для формы */
 #contact-form .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #contact-form label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+    margin-bottom: 5px;
+    font-weight: 600;
     color: #a0a0a0;
 }
 
 #contact-form input, #contact-form textarea {
     width: 100%;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 8px;
     border: 1px solid #444;
     background-color: #333;
     color: #fff;
@@ -167,18 +173,17 @@ h2 {
 
 #submit-btn {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #28a745;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s;
 }
 
 #submit-btn:hover {
     background-color: #218838;
-    transform: translateY(-3px);
 }
