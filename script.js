@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const webApp = window.Telegram.WebApp;
     // Готовим приложение, чтобы оно отображалось корректно
     webApp.ready();
@@ -32,9 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
 
+            // Добавляем информацию о пользователе из Telegram, если она доступна
+            const telegramUser = webApp.initDataUnsafe.user;
+            const userDetails = telegramUser ? `
+                От пользователя Telegram:
+                Имя: ${telegramUser.first_name} ${telegramUser.last_name || ''}
+                Username: @${telegramUser.username || 'Не указан'}
+                ID: ${telegramUser.id}` : 'Информация о пользователе недоступна.';
+
             // Создаём сообщение для отправки в Telegram
             const message = `
                 Новая заявка через Mini App!
+                ${userDetails}
+                ---
                 Имя: ${data.name}
                 Email: ${data.email}
                 Сообщение: ${data.message}
@@ -44,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             webApp.sendData(message);
 
             // Показываем пользователю, что сообщение отправлено
-            alert('Спасибо! Ваше сообщение отправлено.');
+            webApp.showAlert('Спасибо! Ваше сообщение отправлено.');
 
             // Очищаем форму
             contactForm.reset();
