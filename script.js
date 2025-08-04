@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const webApp = window.Telegram.WebApp;
-    // Готовим приложение, чтобы оно отображалось корректно
     webApp.ready();
+    // Делаем кнопки навигации в Telegram невидимыми, так как у нас свои
+    webApp.disableClosingConfirmation();
 
     // 1. Логика переключения разделов
     const navButtons = document.querySelectorAll('.nav-button');
@@ -26,12 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Отменяем стандартную отправку формы
+            e.preventDefault();
 
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
 
-            // Добавляем информацию о пользователе из Telegram, если она доступна
             const telegramUser = webApp.initDataUnsafe.user;
             const userDetails = telegramUser ? `
                 От пользователя Telegram:
@@ -39,9 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 Username: @${telegramUser.username || 'Не указан'}
                 ID: ${telegramUser.id}` : 'Информация о пользователе недоступна.';
 
-            // Создаём сообщение для отправки в Telegram
             const message = `
-                Новая заявка через Mini App!
+                🚀 Новая заявка через Mini App!
                 ${userDetails}
                 ---
                 Имя: ${data.name}
@@ -52,10 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Отправляем данные в Telegram
             webApp.sendData(message);
 
-            // Показываем пользователю, что сообщение отправлено
-            webApp.showAlert('Спасибо! Ваше сообщение отправлено.');
-
-            // Очищаем форму
+            // Показываем пользователю красивое уведомление
+            webApp.showAlert('✅ Спасибо! Ваша заявка отправлена. Я скоро свяжусь с вами.');
+            
             contactForm.reset();
         });
     }
