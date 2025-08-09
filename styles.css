@@ -8,7 +8,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui
 #app{max-width:420px;margin:0 auto;padding:16px}
 .hidden{display:none}
 
-.screen{display:flex;flex-direction:column;gap:16px}
+.screen{display:flex;flex-direction:column;gap:16px;padding-top:64px}
 .title{font-size:22px;font-weight:700}
 .subtitle{color:#cfcfcf}
 .avatar{width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--blue),#1b64ff);box-shadow:var(--shadow);font-size:42px}
