@@ -1,98 +1,224 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мобильная разработка: Портфолио</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Разработчик iOS и Android — Telegram Mini App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <div class="app-container">
-        <header class="main-header">
-            <h1>Мобильная разработка</h1>
-            <p>Создаю исключительные приложения, которые решают реальные задачи.</p>
-        </header>
+  <div id="app">
+    <!-- Главный экран (Портфолио) -->
+    <section class="screen" data-screen="home">
+      <div class="avatar" aria-label="avatar">👨‍💻</div>
+      <h1 class="title">Разработчик iOS и Android</h1>
+      <p class="subtitle">Создаю современные и качественные мобильные приложения</p>
+      <div class="grid-2">
+        <button class="btn btn-blue" data-nav="projects">📱 Проекты</button>
+        <button class="btn btn-teal" data-nav="services">⚙️ Услуги</button>
+        <button class="btn btn-violet" data-nav="reviews">⭐ Отзывы</button>
+        <button class="btn btn-blue" data-nav="contacts">📞 Контакты</button>
+      </div>
+      <div id="home-blocks" class="home-blocks"></div>
+    </section>
 
-        <div class="navigation-bar">
-            <button class="nav-button active" data-target="portfolio">
-                <i class="fas fa-briefcase"></i> Портфолио
-            </button>
-            <button class="nav-button" data-target="cases">
-                <i class="fas fa-file-alt"></i> Кейсы
-            </button>
-            <button class="nav-button" data-target="about">
-                <i class="fas fa-user"></i> Обо мне
-            </button>
-            <button class="nav-button" data-target="contact">
-                <i class="fas fa-envelope"></i> Контакты
-            </button>
-        </div>
+    <!-- Экран Проекты -->
+    <section class="screen hidden" data-screen="projects">
+      <header class="bar">
+        <button class="icon-btn" data-back>←</button>
+        <div class="bar-title">Мои проекты</div>
+      </header>
+      <div class="cards" id="projects-list">
+        <article class="card project" data-project-id="ecommerce">
+          <div class="preview gradient-blue"></div>
+          <div class="card-body">
+            <div class="card-title">E-commerce App</div>
+            <div class="tag tag-blue">iOS • Android</div>
+            <div class="card-desc">Мобильный магазин с интеграцией платежей</div>
+            <button class="chip chip-blue" data-open-project>Подробнее</button>
+          </div>
+        </article>
+        <article class="card project" data-project-id="crm">
+          <div class="preview gradient-teal"></div>
+          <div class="card-body">
+            <div class="card-title">CRM System</div>
+            <div class="tag tag-teal">iOS • Android</div>
+            <div class="card-desc">Система управления клиентами</div>
+            <button class="chip chip-teal" data-open-project>Подробнее</button>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <div id="portfolio" class="content-section active">
-            <h2>Наши последние работы</h2>
-            <div class="project-card">
-                <img src="https://habrastorage.org/getpro/habr/upload_files/c93/b03/47c/c93b0347caf197ee256879328b58fa7f.png" alt="Скриншот приложения ZenFit" class="project-image">
-                <div class="project-info">
-                    <h3>Фитнес-трекер "ZenFit"</h3>
-                    <p>Современное приложение для iOS и Android. Позволяет отслеживать тренировки, калории и прогресс. Технологии: **React Native, Redux, API.**</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://fruktorum-com.s3.amazonaws.com/uploads/article_attachment/74d72c75a26e0f93d4b99d246b051589bf719683.png" alt="Скриншот интернет-магазина Shopio" class="project-image">
-                <div class="project-info">
-                    <h3>Интернет-магазин "Shopio"</h3>
-                    <p>Высокопроизводительный E-commerce проект на Flutter. Удобный интерфейс, интеграция с платежными системами. Технологии: **Flutter, Firebase, Stripe.**</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Ye0lijP6kfPsCwMI586opf3Qh_N67o8DU2xjNhCsCSI8mzH_nNYUGjcFGwOLRI976aU&usqp=CAU" alt="Скриншот приложения FinTrack" class="project-image">
-                <div class="project-info">
-                    <h3>Приложение для учёта финансов "FinTrack"</h3>
-                    <p>Простой и удобный инструмент для управления личными финансами. Отслеживайте доходы и расходы в одном месте. Технологии: **Swift, Core Data.**</p>
-                </div>
-            </div>
-        </div>
+    <!-- Экран Детали проекта (динамический) -->
+    <section class="screen hidden" data-screen="project-detail">
+      <header class="bar">
+        <button class="icon-btn" data-back>←</button>
+        <div class="bar-title" id="pd-title">Детали проекта</div>
+      </header>
+      <div class="pd-preview" id="pd-preview"></div>
+      <div class="pd-meta">
+        <div id="pd-platforms" class="tag">iOS • Android</div>
+        <p id="pd-desc" class="pd-desc"></p>
+        <p id="pd-tech" class="pd-tech"></p>
+      </div>
+      <div class="pd-actions">
+        <button id="pd-more" class="btn btn-blue">Подробнее</button>
+        <button id="pd-store" class="btn btn-outline hidden">Открыть в магазине</button>
+      </div>
+    </section>
 
-        <div id="cases" class="content-section">
-            <h2>Подробные кейсы</h2>
-            <div class="case-study">
-                <h3>Как мы увеличили вовлечённость в "ZenFit" на 40%</h3>
-                <p>Мы внедрили геймификацию и систему достижений. Пользователи стали возвращаться в приложение чаще, увеличив время сессии и retention rate.</p>
-            </div>
-            <div class="case-study">
-                <h3>Оптимизация производительности "Shopio"</h3>
-                <p>Снизили время загрузки каталога товаров на 50% и повысили стабильность работы приложения на 99% за счёт оптимизации запросов к серверу.</p>
-            </div>
-        </div>
+    <!-- Экран Услуги -->
+    <section class="screen hidden" data-screen="services">
+      <header class="bar">
+        <button class="icon-btn" data-back>←</button>
+        <div class="bar-title">Мои услуги</div>
+      </header>
+      <div class="service-list">
+        <article class="service">
+          <div class="service-icon">🍎</div>
+          <div class="service-body">
+            <div class="service-title">Разработка под iOS</div>
+            <div class="service-sub">Нативные приложения на Swift/SwiftUI</div>
+            <div class="price tag tag-blue">от 150,000 ₽</div>
+          </div>
+          <button class="chip chip-blue" data-order="ios">Заказать</button>
+        </article>
+        <article class="service">
+          <div class="service-icon">🤖</div>
+          <div class="service-body">
+            <div class="service-title">Разработка под Android</div>
+            <div class="service-sub">Приложения на Kotlin/Java</div>
+            <div class="price tag tag-teал">от 120,000 ₽</div>
+          </div>
+          <button class="chip chip-teal" data-order="android">Заказать</button>
+        </article>
+        <article class="service">
+          <div class="service-icon">🔄</div>
+          <div class="service-body">
+            <div class="service-title">Кроссплатформенные решения</div>
+            <div class="service-sub">React Native / Flutter</div>
+            <div class="price tag tag-violet">от 100,000 ₽</div>
+          </div>
+          <button class="chip chip-violet" data-order="cross">Заказать</button>
+        </article>
+        <article class="service">
+          <div class="service-icon">🎨</div>
+          <div class="service-body">
+            <div class="service-title">UI/UX дизайн</div>
+            <div class="service-sub">Прототипы и дизайн-системы</div>
+            <div class="price tag">от 70,000 ₽</div>
+          </div>
+          <button class="chip" data-order="design">Заказать</button>
+        </article>
+        <article class="service">
+          <div class="service-icon">🔧</div>
+          <div class="service-body">
+            <div class="service-title">Поддержка и обновления</div>
+            <div class="service-sub">SLA, релизы, оптимизация</div>
+            <div class="price tag">по договорённости</div>
+          </div>
+          <button class="chip" data-order="support">Заказать</button>
+        </article>
+      </div>
+    </section>
 
-        <div id="about" class="content-section">
-            <h2>Немного о нас</h2>
-            <p>Привет! Меня зовут Ильгар. Я профессиональный мобильный разработчик с 5 годами опыта. Моя страсть — превращать идеи в красивые и функциональные приложения.</p>
-            <p>Работаю с самыми современными технологиями и всегда слежу за трендами в мобильной разработке.</p>
+    <!-- Экран Отзывы -->
+    <section class="screen hidden" data-screen="reviews">
+      <header class="bar">
+        <button class="icon-btn" data-back>←</button>
+        <div class="bar-title">Отзывы клиентов</div>
+      </header>
+      <div class="slider" id="reviews-slider">
+        <div class="slides">
+          <div class="slide">
+            <div class="review-card">
+              <div class="review-head">
+                <div class="avatar-sm gradient-blue">👤</div>
+                <div>
+                  <div class="review-name">Алексей Петров</div>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+              </div>
+              <div class="review-text">Отличная работа! Приложение получилось современным и удобным. Рекомендую всем!</div>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="review-card">
+              <div class="review-head">
+                <div class="avatar-sm gradient-teal">👤</div>
+                <div>
+                  <div class="review-name">Мария Сидорова</div>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+              </div>
+              <div class="review-text">Профессиональный подход и качественный результат. Спасибо за работу!</div>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="review-card">
+              <div class="review-head">
+                <div class="avatar-sm gradient-violet">👤</div>
+                <div>
+                  <div class="review-name">Илья Смирнов</div>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+              </div>
+              <div class="review-text">Быстро, чётко, по делу. Отличная коммуникация и результат выше ожиданий.</div>
+            </div>
+          </div>
         </div>
+        <div class="dots" id="review-dots"></div>
+        <div class="slider-arrows">
+          <button class="arrow left" id="reviews-prev">‹</button>
+          <button class="arrow right" id="reviews-next">›</button>
+        </div>
+      </div>
+    </section>
 
-        <div id="contact" class="content-section">
-            <h2>Свяжитесь со мной</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Ваше имя</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Ваш email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Ваше сообщение</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" id="submit-btn">Отправить заявку</button>
-            </form>
-        </div>
+    <!-- Экран Контакты -->
+    <section class="screen hidden" data-screen="contacts">
+      <header class="bar">
+        <button class="icon-btn" data-back>←</button>
+        <div class="bar-title">Свяжитесь со мной</div>
+      </header>
+      <form class="form" id="contact-form">
+        <input class="input" name="name" type="text" placeholder="Ваше имя" required />
+        <input class="input" name="email" type="email" placeholder="Email" required />
+        <textarea class="input" name="message" rows="4" placeholder="Сообщение" required></textarea>
+        <button class="btn btn-blue" type="submit">Отправить</button>
+      </form>
+      <div class="quick-contacts">
+        <button class="chip chip-blue" data-contact="tg">Telegram</button>
+        <button class="chip chip-teal" data-contact="wa">WhatsApp</button>
+        <button class="chip chip-violet" data-contact="email">Email</button>
+      </div>
+      <div class="qr">
+        <button id="download-vcard" class="btn btn-outline">Скачать визитку (vCard)</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal: Заказать услугу -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">Заказать услугу</div>
+        <button class="modal-close" id="modal-close">×</button>
+      </div>
+      <form id="order-form" class="form">
+        <input class="input" name="name" type="text" placeholder="Ваше имя" required />
+        <input class="input" name="contact" type="text" placeholder="Контакт (Telegram/Email)" required />
+        <textarea class="input" name="details" rows="4" placeholder="Коротко о задаче" required></textarea>
+        <button class="btn btn-blue" type="submit">Отправить</button>
+      </form>
     </div>
-    
-    <script src="script.js"></script>
+  </div>
+
+  <script src="app.js"></script>
 </body>
-</html>
+</html> 
